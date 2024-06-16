@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Two-Page Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .tab {
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+        }
+        .tab button {
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .tabcontent.active {
+            display: block;
+        }
+        .filter-section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Website</h1>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openPage(event, 'Home')" id="defaultOpen">Home</button>
+        <button class="tablinks" onclick="openPage(event, 'AboutMe')">About Me</button>
+    </div>
+
+    <div id="Home" class="tabcontent">
+        <h2>Project Ideas</h2>
+        <div class="filter-section">
+            <label for="projectType">Filter by type:</label>
+            <select id="projectType">
+                <option value="all">All</option>
+                <option value="web">Web Development</option>
+                <option value="app">App Development</option>
+                <option value="data">Data Science</option>
+            </select>
+        </div>
+        <section>
+            <h3>1. A GIS and Remote Sensing Analysis of Effects of Climate Change on Natural Water Resources</h3>
+            <h3>2. A Simple Web Map by a Beginner</h3>
+            <p>Details about this project idea...</p>
+        </section>
+        <button onclick="alert('Button clicked!')">Click Me</button>
+    </div>
+
+    <div id="AboutMe" class="tabcontent">
+        <h2>About Me</h2>
+        <section>
+            <h3>Introduction</h3>
+            <b>Hi, My name is KENNEDY MWANGI, a GEGIS Finalist. This is my first website.</b>
+            <b>ID: ENC221-0080/2019</b>
+        </section>
+    <script>
+        function openPage(evt, pageName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(pageName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        document.getElementById("defaultOpen").click();
+
+        function submitForm() {
+            alert("Form submitted!");
+        }
+    </script>
+</body>
+</html>
